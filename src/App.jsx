@@ -29,9 +29,9 @@ function App() {
 function Navbar(){
   return (
   <nav>
-    <Link to='/'>Home</Link>
-    <Link to='/Accueil'>Accueil</Link>
-    <Link to='/Identification'>Identification</Link>
+    <div><Link to='/'>Home</Link></div>
+    <div><Link to='/Accueil'>Accueil</Link></div>
+    <div><Link to='/Identification'>Identification</Link></div>
   </nav>
   )
 }
