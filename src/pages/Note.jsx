@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import Navbar from './NavBar'
 
-function Accueil() {
+function Note() {
   return (
     <>
     <Navbar/>
-    <div>Page d'Accueil</div>
+    <div>Page Note</div>
     </>
   )
 }
 
-export default Accueil
+export default Note

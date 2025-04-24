@@ -1,11 +1,16 @@
 import { useState } from 'react'
 
-function Identification() {
-  const [count, setCount] = useState(0)
 
+
+
+function Identification() {
   return (
     <>
-    <div>Page 3</div>
+      <div>
+        <div>Page d'identification</div>
+        <Link to="/Accueil"> Se connecter </Link>
+      </div>
+
     </>
   )
 }
