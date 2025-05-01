@@ -10,7 +10,12 @@ function Accueil() {
       <div style={{ padding: '2rem' }}>
         <h1 style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>Bienvenue sur votre espace élève</h1>
         
-        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2rem' }}>
+        <Bloc> 
+            <h2>📅 Emploi du temps</h2>
+            <p>08:00 - Maths<br />09:00 - Histoire<br />10:00 - EPS</p>
+        </Bloc>
+
           <Bloc>
             <h2>📊 Dernières notes</h2>
             <ul>
@@ -20,17 +25,12 @@ function Accueil() {
             </ul>
           </Bloc>
 
-          <Bloc>
-            <h2>📅 Emploi du temps</h2>
-            <p>08:00 - Maths<br />09:00 - Histoire<br />10:00 - EPS</p>
-          </Bloc>
-
-          <Bloc width="100%">
+          <Bloc width='400px'>
             <h2>📝 Devoirs</h2>
             <p>Maths : exercices page 42<br />Anglais : vocabulaire à apprendre</p>
           </Bloc>
         </div>
-      </div>
+        </div>
     </>
   );
 }
