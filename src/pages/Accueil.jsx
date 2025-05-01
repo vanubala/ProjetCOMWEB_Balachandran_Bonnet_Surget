@@ -104,8 +104,50 @@ function Accueil() {
         </Bloc>
 
         <Bloc width='400px'> {/* Bloc devoirs */}
-            <h2>📝 Devoirs</h2>
-            <p>Maths : exercices page 42<br />Anglais : vocabulaire à apprendre</p>
+        <h2 style={{ marginBottom: '1rem' }}> Devoirs à faire</h2>
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          <li style={{
+            backgroundColor: '#f9f9f9',
+            padding: '0.75rem 1rem',
+            borderRadius: '8px',
+            marginBottom: '0.75rem',
+            borderLeft: '5px solid #42a5f5',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <input type="checkbox" />
+            <span><strong>📘 Maths :</strong> exercices p.42 à rendre vendredi</span>
+          </li>
+
+          <li style={{
+            backgroundColor: '#fefefe',
+            padding: '0.75rem 1rem',
+            borderRadius: '8px',
+            marginBottom: '0.75rem',
+            borderLeft: '5px solid #66bb6a',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <input type="checkbox" />
+            <span><strong>🧠 Anglais :</strong> apprendre le vocabulaire "Food and drinks"</span>
+          </li>
+
+          <li style={{
+            backgroundColor: '#f9f9f9',
+            padding: '0.75rem 1rem',
+            borderRadius: '8px',
+            marginBottom: '0.75rem',
+            borderLeft: '5px solid #ffa726',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <input type="checkbox" />
+            <span><strong>✍️ Histoire :</strong> rédiger une biographie de Napoléon</span>
+          </li>
+        </ul>
         </Bloc>
         </div>
       </div>
