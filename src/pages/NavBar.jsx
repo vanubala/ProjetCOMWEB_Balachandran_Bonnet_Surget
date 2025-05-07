@@ -19,7 +19,7 @@ function Navbar(){
           <Link to='/Note'>Note</Link>
       </div>
       <div style={{ color: 'white', fontWeight: 'bold' }}>
-          <Link to='/Identification'><i className="fi fi-br-exit"></i></Link>
+          <Link to='/'><i className="fi fi-br-exit"></i></Link>
       </div>
     </nav>
     )
