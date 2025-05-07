@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `etudiant` (
   `ID` int(11) NOT NULL,
   `NOM_Prénom` text NOT NULL,
+  `Identifiant` text NOT NULL,
   'Date_Naissance' DATE NOT NULL, -- Format : YYYY-MM-DD
   `Français` float NOT NULL,
   `Mathématiques` float NOT NULL,
