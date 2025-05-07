@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `etudiant` (
   `ID` int(11) NOT NULL,
   `NOM_Prénom` text NOT NULL,
+  'Date_Naissance' DATE NOT NULL, -- Format : YYYY-MM-DD
   `Français` float NOT NULL,
   `Mathématiques` float NOT NULL,
   `Physique` float NOT NULL,
@@ -41,22 +42,22 @@ CREATE TABLE `etudiant` (
 -- Déchargement des données de la table `etudiant`
 --
 
-INSERT INTO `etudiant` (`ID`, `NOM_Prénom`, `Français`, `Mathématiques`, `Physique`, `Biologie`, `Philosophie`) VALUES
-(1, 'Ilan Caron', 10.2, 11.5, 16.2, 14.1, 12),
-(2, 'Benoît Rivière', 8.5, 14.2, 13.4, 9.6, 11.1),
-(3, 'Sacha Moreau', 17.2, 15.6, 16.9, 16.2, 14.6),
-(4, 'Maëlle Barre', 16.5, 12.3, 11.5, 14.3, 18.9),
-(5, 'Élodie Clement', 9.1, 12.3, 12.5, 13, 10.2),
-(6, 'Valentine Delattre', 11.2, 9.4, 8.6, 13.5, 10.4),
-(7, 'Ulysse Hubert', 8.4, 7.5, 9.2, 10.1, 9.4),
-(8, 'Cyril Riviere', 11.3, 11, 12.1, 8.6, 9.6),
-(9, 'Clément Guillaume', 13.5, 14.3, 11.2, 11.3, 12.3),
-(10, 'Yasmine Dupuis', 10.5, 15.2, 11, 14.3, 14.6),
-(11, 'Delphine Leclercq', 13.2, 7.3, 9.8, 12.1, 12.8),
-(12, 'Mathilde Le Gall', 16.3, 19.3, 18.4, 18.6, 17.6),
-(13, 'David Pons', 11.1, 9.6, 11.2, 12, 9.9),
-(14, 'Léo Poirier', 10.2, 10.6, 11.4, 9.6, 12),
-(15, 'Charlotte Lucas', 10.2, 12.6, 11.6, 13.2, 9.3);
+INSERT INTO `etudiant` (`ID`, `NOM_Prénom`, 'Date_Naissance', `Français`, `Mathématiques`, `Physique`, `Biologie`, `Philosophie`) VALUES
+(1, 'Ilan Caron','2007-05-03' 10.2, 11.5, 16.2, 14.1, 12),
+(2, 'Benoît Rivière','2007-10-08', 8.5, 14.2, 13.4, 9.6, 11.1),
+(3, 'Sacha Moreau','2007-12-05', 17.2, 15.6, 16.9, 16.2, 14.6),
+(4, 'Maëlle Barre','2008-01-14', 16.5, 12.3, 11.5, 14.3, 18.9),
+(5, 'Élodie Clement','2007-06-12', 9.1, 12.3, 12.5, 13, 10.2),
+(6, 'Valentine Delattre','2007-03-03', 11.2, 9.4, 8.6, 13.5, 10.4),
+(7, 'Ulysse Hubert','2007-02-19', 8.4, 7.5, 9.2, 10.1, 9.4),
+(8, 'Cyril Riviere','2007-08-29', 11.3, 11, 12.1, 8.6, 9.6),
+(9, 'Clément Guillaume','2007-07-25', 13.5, 14.3, 11.2, 11.3, 12.3),
+(10, 'Yasmine Dupuis','2008-01-02', 10.5, 15.2, 11, 14.3, 14.6),
+(11, 'Delphine Leclercq','2007-08-26', 13.2, 7.3, 9.8, 12.1, 12.8),
+(12, 'Mathilde Le Gall','2007-04-27', 16.3, 19.3, 18.4, 18.6, 17.6),
+(13, 'David Pons','2006-11-07', 11.1, 9.6, 11.2, 12, 9.9),
+(14, 'Léo Poirier','2007-05-17', 10.2, 10.6, 11.4, 9.6, 12),
+(15, 'Charlotte Lucas','2007-04-26', 10.2, 12.6, 11.6, 13.2, 9.3);
 
 --
 -- Index pour les tables déchargées
