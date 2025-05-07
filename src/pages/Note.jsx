@@ -15,7 +15,7 @@ function Note() {
       <Navbar/>
       <ul>
           {notes.map((etudiant) => (
-            <li key={etudiant.id}>  {etudiant.NOM_Prénom} - {etudiant.Français}</li>
+            <li key={etudiant.id}>  {etudiant.NOM_Prénom} - {etudiant.Français} - {etudiant.Date_Naissance}</li>
           ))}
       </ul>
     </>
