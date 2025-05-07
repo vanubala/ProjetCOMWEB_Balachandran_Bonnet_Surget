@@ -43,7 +43,7 @@ CREATE TABLE `etudiant` (
 --
 
 INSERT INTO `etudiant` (`ID`, `NOM_Prénom`, 'Date_Naissance', `Français`, `Mathématiques`, `Physique`, `Biologie`, `Philosophie`) VALUES
-(1, 'Ilan Caron','2007-05-03' 10.2, 11.5, 16.2, 14.1, 12),
+(1, 'Ilan Caron','2007-05-03', 10.2, 11.5, 16.2, 14.1, 12),
 (2, 'Benoît Rivière','2007-10-08', 8.5, 14.2, 13.4, 9.6, 11.1),
 (3, 'Sacha Moreau','2007-12-05', 17.2, 15.6, 16.9, 16.2, 14.6),
 (4, 'Maëlle Barre','2008-01-14', 16.5, 12.3, 11.5, 14.3, 18.9),
