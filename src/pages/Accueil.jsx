@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import Navbar from './NavBar'
 import './Accueil.css'
+
 import Bloc from './Bloc';
+import { Link } from 'react-router-dom';
 
 function Accueil() {
   return (
@@ -34,7 +36,11 @@ function Accueil() {
 
 
         <Bloc> {/* Bloc dernières notes */}
-        <h2 style={{ marginBottom: '1rem' }}> Dernières notes</h2>
+        <div style={{ width: '100%', textAlign: 'right' }}>
+            <Link to="/note" style={{color: 'rgba(80, 104, 239, 0.95)', fontSize: '1.25rem', textDecoration: 'none'}}><i class="fi fi-sr-eye"></i></Link>
+        </div>
+
+        <h2 style={{ marginTop: '0', marginBottom: '1rem' }}> Dernières notes</h2>
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ backgroundColor: '#f0f0f0' }}>
