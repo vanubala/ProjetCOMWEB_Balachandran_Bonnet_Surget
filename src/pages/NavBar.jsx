@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import "./NavBar.css"
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import "./NavBar.css";
 
-
-function Navbar(){
+function Navbar() {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
@@ -12,38 +11,18 @@ function Navbar(){
     navigate('/'); // Redirige vers la page d'identification
   };
 
-  const [etudiant, setEtudiant] = useState(null);
-
-  useEffect(() => {
-    fetch("http://localhost/react-api/get_notes.php")
-      .then((res) => res.json())
-      .then((data) => {
-        const filtre = data.find((etudiant) => etudiant.NOM_Prénom === "Benoît Rivière");
-        setEtudiant(filtre);
-      })
-      .catch((err) => console.error("Erreur:", err));
-  }, []);
-    return (
-    <nav
-    style={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center', // Centrer les éléments verticalement
-      padding: '1rem 2rem', // Largeur de la NavBar
-      backgroundColor: 'black',
-      top: 0,
-    }}
-    >
+  return (
+    <nav style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '1rem 2rem',
+        backgroundColor: 'black',
+        position: 'relative', // Pour positionner le popup par rapport à la navbar
+      }}>
       <div style={{ display: 'flex', gap: '2rem' }}>
         <Link to='/Accueil' style={{ color: 'white' }}>Accueil</Link>
         <Link to='/Note' style={{ color: 'white' }}>Note</Link>
-      </div>
-      <div style ={{ color: 'white', fontWeight: 'bold'}}>
-        {etudiant ? (
-            <p>{etudiant.NOM_Prénom}</p>
-          ) : (
-            <p>Chargement ou élève non trouvé.</p>
-          )}
       </div>
 
       <div style={{ color: 'white', fontWeight: 'bold', position: 'relative' }}>
@@ -79,7 +58,7 @@ function Navbar(){
         )}
       </div>
     </nav>
-    )
-  }
+  );
+}
 
-  export default Navbar;
+export default Navbar;
