@@ -20,7 +20,7 @@ function Navbar(props) {
 
   const handleLogout = () => {
     setShowPopup(false);
-    navigate('/'); // Redirige vers la page d'identification
+    navigate('/Identification'); // Redirige vers la page d'identification
   };
 
   return (

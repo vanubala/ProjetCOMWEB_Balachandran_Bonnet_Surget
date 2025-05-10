@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Identification from './pages/Identification'
 import Accueil from './pages/Accueil'
 import Note from './pages/Note'
+import UserType from './pages/UserType'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,7 +13,8 @@ function App() {
     <>
     <Router>
       <Routes>
-        <Route path='/' element={<Identification/>}/>
+        <Route path='/' element={<UserType/>}/>
+        <Route path='/Identification' element={<Identification/>}/>
         <Route path='/Accueil' element={<Accueil/>}/>
         <Route path='/Note' element={<Note/>}/>
       </Routes>
