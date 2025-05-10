@@ -1,5 +1,6 @@
 import {React, useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import './Login.css'
 
 function Identifiant() {
   const [identifiant, setIdentifiant] = useState("");
@@ -33,7 +34,7 @@ function Identifiant() {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="login-container">
       <h2>Connexion</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -56,7 +57,7 @@ function Identifiant() {
         </div>
         <button type="submit">Se connecter</button>
       </form>
-      {erreur && <p style={{ color: "red" }}>{erreur}</p>}
+      {erreur && <p className="error-message">{erreur}</p>}
     </div>
   );
 }
