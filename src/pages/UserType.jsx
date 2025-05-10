@@ -25,7 +25,7 @@ function UserType() {
               </button>
             </Link>
 
-            <Link to="/Identification">
+            <Link to="/LoginProf">
               <button onClick={() => handleRoleSelection('professeur')} className="role-button">
                 Professeur
               </button>
@@ -40,7 +40,7 @@ function UserType() {
         </div>
 
 
-        {role && <p>Vous avez sélectionné le rôle: {role}</p>}
+        {role}
       </div>
     </body>
   );
