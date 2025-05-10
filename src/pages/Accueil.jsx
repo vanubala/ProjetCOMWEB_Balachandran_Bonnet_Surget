@@ -55,11 +55,13 @@ function Accueil() {
         </div>
 
         <h2 style={{ marginTop: '0', marginBottom: '1rem' }}> Dernières notes</h2>
+        
+        {etudiant ? (
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ backgroundColor: '#f0f0f0' }}>
               <th style={{
-                textAlign: 'left',
+                textAlign: 'center',
                 padding: '0.5rem 0.75rem',
                 borderBottom: '1px solid #ccc',
                 fontSize: '0.95rem'
@@ -87,7 +89,7 @@ function Accueil() {
                   fontWeight: 'bold',
                   fontSize: '0.9rem'
                 }}>
-                  15/20
+                  {etudiant.Mathématiques}/20
                 </span>
               </td>
             </tr>
@@ -101,7 +103,7 @@ function Accueil() {
                   fontWeight: 'bold',
                   fontSize: '0.9rem'
                 }}>
-                  17/20
+                  {etudiant.Français}/20
                 </span>
               </td>
             </tr>
@@ -115,12 +117,14 @@ function Accueil() {
                   fontWeight: 'bold',
                   fontSize: '0.9rem'
                 }}>
-                  12/20
+                  {etudiant.Physique}/20
                 </span>
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> ) : (
+        <span>Pas de notes</span>
+        )}
         </Bloc>
 
         <Bloc width='400px'> {/* Bloc devoirs */}
