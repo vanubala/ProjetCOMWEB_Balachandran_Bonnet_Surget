@@ -12,28 +12,36 @@ function UserType() {
   return (
     
     <body className='fond-usertype'>
+      <div className="conteneur-principal">
+        <div className='bloc-gauche'>
+          <img src="./logo.png" alt="Logo" className="logo" />
+        </div>
 
-      <div className="role-buttons">
-        <Link to="/Identification">
-          <button onClick={() => handleRoleSelection('eleve')} className="role-button">
-            Élève
-          </button>
-        </Link>
+        <div className='bloc-droit'>
+          <div className="role-buttons">
+            <Link to="/Identification">
+              <button onClick={() => handleRoleSelection('eleve')} className="role-button">
+                Élève
+              </button>
+            </Link>
 
-        <Link to="/Identification">
-          <button onClick={() => handleRoleSelection('professeur')} className="role-button">
-            Professeur
-          </button>
-        </Link>
+            <Link to="/Identification">
+              <button onClick={() => handleRoleSelection('professeur')} className="role-button">
+                Professeur
+              </button>
+            </Link>
 
-        <Link to="/Identification">
-          <button onClick={() => handleRoleSelection('parent')} className="role-button">
-            Parent
-          </button>
-        </Link>
+            <Link to="/Identification">
+              <button onClick={() => handleRoleSelection('parent')} className="role-button">
+                Parent
+              </button>
+            </Link>
+          </div>
+        </div>
+
+
+        {role && <p>Vous avez sélectionné le rôle: {role}</p>}
       </div>
-
-      {role && <p>Vous avez sélectionné le rôle: {role}</p>}
     </body>
   );
 }
