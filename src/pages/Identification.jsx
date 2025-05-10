@@ -21,6 +21,7 @@ function Identifiant() {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          localStorage.setItem("etudiant", JSON.stringify(data.etudiant));
           navigate("/Accueil"); // Redirection vers la page d'accueil
         } else {
           setErreur(data.message || "Échec de la connexion.");

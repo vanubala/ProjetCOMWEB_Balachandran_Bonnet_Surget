@@ -1,10 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "./NavBar.css";
 
-function Navbar() {
+function Navbar(props) {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+
+  const [etudiant, setEtudiant] = useState(null);
+  useEffect(() => {
+    const etudiantStocke = localStorage.getItem("etudiant");
+    if (etudiantStocke) {
+      try {
+        setEtudiant(JSON.parse(etudiantStocke));
+      } catch (e) {
+        console.error("Erreur de parsing JSON :", e);
+      }
+    }
+  }, []);
 
   const handleLogout = () => {
     setShowPopup(false);
@@ -23,6 +35,14 @@ function Navbar() {
       <div style={{ display: 'flex', gap: '2rem' }}>
         <Link to='/Accueil' style={{ color: 'white' }}>Accueil</Link>
         <Link to='/Note' style={{ color: 'white' }}>Note</Link>
+      </div>
+
+      <div style={{ color: 'white', fontWeight: 'bold', position: 'relative' }}>
+        {etudiant ? (
+            <p>{etudiant.NOM_Prénom}</p>
+        ) : (
+          <p>Chargement ou élève non trouvé.</p>
+        )}
       </div>
 
       <div style={{ color: 'white', fontWeight: 'bold', position: 'relative' }}>

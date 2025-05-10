@@ -25,7 +25,10 @@ if (!empty($identifiant) && !empty($motDePasse)) {
 
         // Vérification du mot de passe
         if ($motDePasse === $dateFormatee) {
-            echo json_encode(["success" => true]);
+            echo json_encode([
+                "etudiant" => $row, // Contient toutes les infos de l'étudiant
+                "success" => true,
+            ]);
         } else {
             echo json_encode(["success" => false, "message" => "Mot de passe incorrect."]);
         }

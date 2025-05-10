@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from './NavBar'
 import './Accueil.css'
 
@@ -6,11 +6,25 @@ import Bloc from './Bloc';
 import { Link } from 'react-router-dom';
 
 function Accueil() {
+  const [etudiant, setEtudiant] = useState(null);
+  useEffect(() => {
+    const etudiantStocke = localStorage.getItem("etudiant");
+    if (etudiantStocke) {
+      try {
+        setEtudiant(JSON.parse(etudiantStocke));
+      } catch (e) {
+        console.error("Erreur de parsing JSON :", e);
+      }
+    }
+  }, []);
   return (
     <>
       <Navbar /> {/* Barre de Navigation */}
-      <div style={{ padding: '2rem' }}>
-        <h1 style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>Bienvenue sur votre espace élève</h1>
+      <div style={{ padding: '2rem' }}>      
+          <h1 style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>  
+          Bienvenu sur ton espace personel
+          </h1>
+
         <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2rem' }}>
 
         <Bloc> {/* Bloc emploi du temps */}
