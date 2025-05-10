@@ -4,6 +4,14 @@ import "./NavBar.css"
 
 
 function Navbar(){
+  const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setShowPopup(false);
+    navigate('/'); // Redirige vers la page d'identification
+  };
+
   const [etudiant, setEtudiant] = useState(null);
 
   useEffect(() => {
@@ -27,8 +35,8 @@ function Navbar(){
     }}
     >
       <div style={{ display: 'flex', gap: '2rem' }}>
-          <Link to='/Accueil'>Accueil</Link>
-          <Link to='/Note'>Note</Link>
+        <Link to='/Accueil' style={{ color: 'white' }}>Accueil</Link>
+        <Link to='/Note' style={{ color: 'white' }}>Note</Link>
       </div>
       <div style ={{ color: 'white', fontWeight: 'bold'}}>
         {etudiant ? (
@@ -37,11 +45,41 @@ function Navbar(){
             <p>Chargement ou élève non trouvé.</p>
           )}
       </div>
-      <div style={{ color: 'white', fontWeight: 'bold' }}>
-          <Link to='/Identification'><i className="fi fi-br-exit"></i></Link>
+
+      <div style={{ color: 'white', fontWeight: 'bold', position: 'relative' }}>
+        <i className="fi fi-br-exit" style={{ cursor: 'pointer' }} onClick={() => setShowPopup(!showPopup)}></i>
+
+        {showPopup && (
+          <div style={{
+            position: 'absolute',
+            top: '2.5rem',
+            right: 0,
+            backgroundColor: 'white',
+            border: '1px solid #ccc',
+            padding: '1rem',
+            borderRadius: '8px',
+            zIndex: 1000,
+            boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
+          }}>
+            
+            <button
+              onClick={handleLogout}
+              style={{
+                backgroundColor: 'red',
+                color: 'white',
+                border: 'none',
+                padding: '0.5rem 1rem',
+                borderRadius: '4px',
+                cursor: 'pointer',
+              }}
+            >
+              Déconnexion
+            </button>
+          </div>
+        )}
       </div>
     </nav>
     )
   }
 
-  export default Navbar
+  export default Navbar;
