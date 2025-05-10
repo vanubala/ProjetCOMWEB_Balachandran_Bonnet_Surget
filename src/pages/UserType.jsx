@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './UserType.css'; // Pour le style (optionnel)
+import './UserType.css';
 
 function UserType() {
   const [role, setRole] = useState('');
