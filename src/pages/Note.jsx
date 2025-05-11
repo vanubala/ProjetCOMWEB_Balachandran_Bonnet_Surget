@@ -13,13 +13,25 @@ function Note() {
       }
     }
   }, []);
+
+  const [notes, setNotes] = useState([]);
+  const role = localStorage.getItem("role");
+    if (role == "professeur")
+    {
+      useEffect(() => {
+        fetch("http://localhost/react-api/get_notes.php")
+          .then((res) => res.json())
+          .then((data) => setNotes(data))
+          .catch((err) => console.error("Erreur:", err));
+      }, []);
+    }
+
   return (
     <>
       <Navbar/>
       <div>
         {etudiant ? (
           <ul>
-            <li> NOM : {etudiant.NOM_Prénom}</li>
             <li>Français : {etudiant.Français}</li>
             <li>Philosophie : {etudiant.Philosophie}</li>
             <li>Mathématiques : {etudiant.Mathématiques}</li>
@@ -27,8 +39,13 @@ function Note() {
             <li>Physique : {etudiant.Physique}</li>
           </ul>
         ) : (
-          <p>Chargement ou élève non trouvé.</p>
+          ""
         )}
+      <ul>
+          {notes.map((etudiant) => (
+            <li key={etudiant.id}>  {etudiant.NOM_Prénom} - {etudiant.Français} - {etudiant.Date_Naissance}</li>
+          ))}
+      </ul>
       </div>
     </>
   )

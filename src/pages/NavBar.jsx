@@ -2,25 +2,44 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "./NavBar.css";
 
-function Navbar(props) {
+function Navbar() {
+  const role = localStorage.getItem("role");
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
-  const [etudiant, setEtudiant] = useState(null);
-  useEffect(() => {
-    const etudiantStocke = localStorage.getItem("etudiant");
-    if (etudiantStocke) {
-      try {
-        setEtudiant(JSON.parse(etudiantStocke));
-      } catch (e) {
-        console.error("Erreur de parsing JSON :", e);
+  const [personne, setPersonne] = useState(null);
+  if (role == "eleve")
+  {
+    useEffect(() => {
+      const etudiantStocke = localStorage.getItem("etudiant");
+      if (etudiantStocke) {
+        try {
+          setPersonne(JSON.parse(etudiantStocke));
+        } catch (e) {
+          console.error("Erreur de parsing JSON :", e);
+        }
       }
-    }
-  }, []);
-
+    }, []);
+  }
+  else
+  {
+    useEffect(() => {
+      const profStocke = localStorage.getItem("prof");
+      if (profStocke) {
+        try {
+          setPersonne(JSON.parse(profStocke));
+        } catch (e) {
+          console.error("Erreur de parsing JSON :", e);
+        }
+      }
+    }, []);
+  }  
   const handleLogout = () => {
     setShowPopup(false);
-    navigate('/Identification'); // Redirige vers la page d'identification
+    navigate('/'); // Redirige vers la page de UserType
+    localStorage.setItem("etudiant", null);
+    localStorage.setItem("prof", null);
+    localStorage.setItem("notes", null);
   };
 
   return (
@@ -37,12 +56,14 @@ function Navbar(props) {
         <Link to='/Note' style={{ color: 'white' }}>Note</Link>
       </div>
 
+
       <div style={{ color: 'white', fontWeight: 'bold', position: 'relative' }}>
-        {etudiant ? (
-            <p>{etudiant.NOM_Prénom}</p>
-        ) : (
-          <p>Chargement ou élève non trouvé.</p>
-        )}
+      
+          {personne ? (
+            <p>{personne.NOM_Prénom}</p>
+          ) : (
+            <p>Chargement...</p>
+          )}
       </div>
 
       <div style={{ color: 'white', fontWeight: 'bold', position: 'relative' }}>

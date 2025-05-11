@@ -4,9 +4,9 @@ import './UserType.css';
 
 function UserType() {
   const [role, setRole] = useState('');
-
   const handleRoleSelection = (selectedRole) => {
     setRole(selectedRole);
+    localStorage.setItem("role", selectedRole);
   };
 
   return (
@@ -45,5 +45,4 @@ function UserType() {
     </body>
   );
 }
-
 export default UserType;
