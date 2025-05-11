@@ -22,7 +22,7 @@ function Accueil() {
       <Navbar /> {/* Barre de Navigation */}
       <div style={{ padding: '2rem' }}>      
           <h1 style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>  
-          Bienvenu sur ton espace personel
+          Bienvenue sur ton espace personel
           </h1>
 
         <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2rem' }}>

@@ -10,39 +10,40 @@ function UserType() {
   };
 
   return (
-    
-    <body className='fond-usertype'>
-      <div className="conteneur-principal">
-        <div className='bloc-gauche'>
-          <img src="./logo.png" alt="Logo" className="logo" />
+    <>
+    <div className="usertype-page">
+      <header className="usertype-header">
+        <img src="./logo-ensc.png" alt="Logo ENSC" className="logo-ensc" />
+        <h2 className="etab-name">ENSC</h2>
+        <img src="./logo.png" alt="Logo Apollo" className="logo-apollo" />
+      </header>
+
+      <main className="usertype-main">
+        <div className="roles-container">
+        <Link to="/Identification" onClick={() => handleRoleSelection("eleve")}>
+            <div className="role-card">
+              <img src="./eleve.png" alt="Élèves" />
+              <span>Élèves</span>
+            </div>
+          </Link>
+          <Link to="/LoginProf" onClick={() => handleRoleSelection("parent")}>
+            <div className="role-card">
+              <img src="./parents.png" alt="Parents" />
+              <span>Parents</span>
+            </div>
+          </Link>
+          <Link to="/LoginProf" onClick={() => handleRoleSelection("professeur")}>
+            <div className="role-card">
+              <img src="./prof.png" alt="Professeurs" />
+              <span>Professeurs</span>
+            </div>
+          </Link>
         </div>
-
-        <div className='bloc-droit'>
-          <div className="role-buttons">
-            <Link to="/Identification">
-              <button onClick={() => handleRoleSelection('eleve')} className="role-button">
-                Élève
-              </button>
-            </Link>
-
-            <Link to="/LoginProf">
-              <button onClick={() => handleRoleSelection('professeur')} className="role-button">
-                Professeur
-              </button>
-            </Link>
-
-            <Link to="/Identification">
-              <button onClick={() => handleRoleSelection('parent')} className="role-button">
-                Parent
-              </button>
-            </Link>
-          </div>
-        </div>
-
-
-        {role}
-      </div>
-    </body>
+      </main>
+    </div>
+    {role}
+    </>
   );
 }
+
 export default UserType;
