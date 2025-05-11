@@ -1,5 +1,6 @@
 import {React, useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import UserType from './UserType';
 import './Login.css'
 
 function Identifiant() {
@@ -8,6 +9,16 @@ function Identifiant() {
   const [erreur, setErreur] = useState("");
   const navigate = useNavigate();
 
+  const role = localStorage.getItem("role");
+  const roleImages = {
+    professeur: "./logo-prof.png",
+    parent: "./logo-parents.png",
+    élève: "./logo-eleve.png",
+  };
+  const imageSrc = roleImages[role] || "./apollo.png";
+
+  const [personne, setPersonne] = useState(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -15,28 +26,52 @@ function Identifiant() {
     formData.append("identifiant", identifiant);
     formData.append("motDePasse", motDePasse);
 
-    fetch("http://localhost/react-api/login.php", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          localStorage.setItem("etudiant", JSON.stringify(data.etudiant));
-          navigate("/Accueil"); // Redirection vers la page d'accueil
-        } else {
-          setErreur(data.message || "Échec de la connexion.");
-        }
+    if (role=="élève"){
+      fetch("http://localhost/react-api/login.php", {
+        method: "POST",
+        body: formData,
       })
-      .catch(() => {
-        setErreur("Erreur de connexion au serveur.");
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            localStorage.setItem("etudiant", JSON.stringify(data.etudiant));
+            navigate("/Accueil"); // Redirection vers la page d'accueil
+          } else {
+            setErreur(data.message || "Échec de la connexion.");
+          }
+        })
+        .catch(() => {
+          setErreur("Erreur de connexion au serveur.");
+        });
+    }
+    else if (role=="professeur"){
+      fetch("http://localhost/react-api/prof.php", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            localStorage.setItem("prof", JSON.stringify(data.prof));
+            navigate("/Accueil"); // Redirection vers la page d'accueil
+          } else {
+            setErreur(data.message || "Échec de la connexion.");
+          }
+        })
+        .catch(() => {
+          setErreur("Erreur de connexion au serveur.");
+        });
+    }
+
   };
+
+
 
   return (
     <div className="login-container">
-      <h2>Connexion</h2>
-      <form onSubmit={handleSubmit}>
+      <h2> Espace {role ? role.charAt(0).toUpperCase() + role.slice(1)+"s" : ''} </h2>
+      <img src={imageSrc} alt={`Image pour ${role}`} className="role-image" />
+      <form onSubmit={handleSubmit} className="login-form">
         <div>
           <label>Identifiant : </label>
           <input

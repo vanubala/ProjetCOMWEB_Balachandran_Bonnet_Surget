@@ -8,7 +8,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   const [personne, setPersonne] = useState(null);
-  if (role == "eleve")
+  if (role == "élève")
   {
     useEffect(() => {
       const etudiantStocke = localStorage.getItem("etudiant");
