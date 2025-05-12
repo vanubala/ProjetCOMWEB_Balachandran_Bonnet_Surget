@@ -73,9 +73,22 @@ body {
   background-color: #367be4;
 }
 
-.error-message {
+.erreur {
   color: red;
   text-align: center;
   margin-top: 1rem;
 }
 
+.indice {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.mdpoubli {
+  color: "#007bff";
+  cursor: "pointer";
+  text-align: "center";
+  margin-top: "1rem"; 
+}

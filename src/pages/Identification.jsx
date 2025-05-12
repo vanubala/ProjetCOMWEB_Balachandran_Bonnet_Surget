@@ -7,6 +7,7 @@ function Identifiant() {
   const [identifiant, setIdentifiant] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
   const [erreur, setErreur] = useState("");
+  const [indice, setIndice] = useState(false);
   const navigate = useNavigate();
 
   const role = localStorage.getItem("role");
@@ -16,8 +17,6 @@ function Identifiant() {
     élève: "./logo-eleve.png",
   };
   const imageSrc = roleImages[role] || "./apollo.png";
-
-  const [personne, setPersonne] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,7 +81,7 @@ function Identifiant() {
           />
         </div>
         <div>
-          <label>Mot de passe (jjmmaaaa) : </label>
+          <label>Mot de passe : </label>
           <input
             type="password"
             value={motDePasse}
@@ -91,8 +90,15 @@ function Identifiant() {
           />
         </div>
         <button type="submit">Se connecter</button>
+        <p className="mdpoubli" onClick={() => setIndice(!indice)}
+        >
+          Mot de passe oublié ?
+        </p>
+
+        {indice && (<p className="indice"> jjmmaaaa</p>
+        )}
       </form>
-      {erreur && <p className="error-message">{erreur}</p>}
+      {erreur && <p className="erreur">{erreur}</p>}
     </div>
   );
 }
