@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Navbar from './NavBar'
 import './Accueil.css'
+import { FaEye } from 'react-icons/fa';
 
 import Bloc from './Bloc';
 import { Link } from 'react-router-dom';
@@ -60,10 +61,10 @@ function Accueil() {
             {/* NOTES */}
             <Bloc style={{height:'400px'}}>
               <div style={{ width: '100%', textAlign: 'right' }}>
-                <Link to="/note" style={{color: 'rgba(80, 104, 239, 0.95)', fontSize: '1.25rem', textDecoration: 'none'}}><i className="fi fi-sr-eye"></i></Link>
+                <Link to="/note" style={{color: 'rgba(80, 104, 239, 0.95)', fontSize: '1.25rem', textDecoration: 'none'}}><FaEye className='icon'/></Link>
               </div>
 
-              <h2 style={{ marginTop: '0', marginBottom: '1rem' }}> Dernières notes</h2>
+              <h2 style={{ marginTop: '1', marginBottom: '2rem' }}> Dernières notes</h2>
 
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
