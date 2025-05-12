@@ -156,17 +156,23 @@ function Accueil() {
         </div>
       )}
 
+
+
+
+
+      
+
+
+
       {/* ACCUEIL PROF */}
       {role === "professeur" && (
         <div style={{ padding: '2rem' }}>
-          <h1 style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>
-            Espace professeur
-          </h1>
+          <h1 style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>Espace professeur</h1>
 
         <div style={{ display:'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2rem' }}>
 
         {/*EMPLOI DU TEMPS*/}
-        <Bloc style={{height:'350px'}}>
+        <Bloc width='350px' >
           <h2 style={{ marginBottom: '2rem' }}>ᐊ Lundi 5 mai ᐅ</h2>
               <div style={{ display: 'grid', gridTemplateColumns: '100px 1fr', rowGap: '0.75rem' }}>
                 <div style={{ fontWeight: 'bold' }}>08:00</div>
@@ -189,13 +195,14 @@ function Accueil() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
 
           {/*PENSE BETE*/}
-          <Bloc style={{height:'200px'}}>
-            <h2 style={{ marginTop: '0', fontSize: '1rem', marginBottom: '0.5rem' }}>Pense-Bête</h2>
+          <Bloc width='350px' style={{height:'200px'}}>
+            <h2 style={{ marginTop: '0', fontSize: '1rem', marginBottom: '0.5rem' }}> 
+              <span style={{ backgroundColor: 'yellow' }}>Pense-Bête</span></h2>
               <div style={{fontSize:'0.8rem'}}>Ne pas oublier de distribuer les copies corrigées des T°1</div>
           </Bloc>
 
         {/*CAHIER DES CHARGES*/}
-          <Bloc>
+          <Bloc width='350px'>
             <h2 style={{ marginTop: '0', fontSize: '1rem', marginBottom: '0.5rem' }}>Cahier de texte</h2>
                 <div style={{ fontSize: '0.9rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   
@@ -221,7 +228,7 @@ function Accueil() {
         </div>
 
         {/*AGENDA*/}
-          <Bloc width='400px'>
+          <Bloc width='350px'>
             <h2 style={{ marginTop: '0', fontSize: '1rem', marginBottom: '0.5rem' }}>Agenda</h2>
             <div style={{ fontSize: '0.9rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               
