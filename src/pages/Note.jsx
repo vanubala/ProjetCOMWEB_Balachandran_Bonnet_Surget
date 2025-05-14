@@ -28,13 +28,26 @@ function Note() {
     }
   }, [role]);
 
+  const [personne, setPersonne] = useState(null);
+  useEffect(() => {
+    const profStocke = localStorage.getItem("prof");
+    if (profStocke) {
+      try {
+        setPersonne(JSON.parse(profStocke));
+      } catch (e) {
+        console.error("Erreur de parsing JSON :", e);
+      }
+    }
+  }, [role]);
+
+  setPersonne(personne.Matière)
   return (
     <>
       <Navbar/>
       <div>
         {role === "élève" && etudiant && (
           <ul className="note-list">
-            <li>Français : {etudiant.Français}</li>
+            <li>Anglais : {etudiant.Anglais}</li>
             <li>Philosophie : {etudiant.Philosophie}</li>
             <li>Mathématiques : {etudiant.Mathématiques}</li>
             <li>Biologie : {etudiant.Biologie}</li>
@@ -46,7 +59,7 @@ function Note() {
           <ul className="note-list">
             {notes.map((eleve) => (
               <li key={eleve.id}>
-                {eleve.NOM_Prénom} - Français : {eleve.Français} - Date de naissance : {eleve.Date_Naissance}
+                {eleve.NOM_Prénom} - Français : {eleve.personne} - Date de naissance : {eleve.Date_Naissance}
               </li>
             ))}
           </ul>
