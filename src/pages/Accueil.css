@@ -6,3 +6,229 @@
     color: #666;
     font-size: 1.5rem;
   }
+
+.icon-info
+{
+  color: rgba(80, 104, 239, 0.95);
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+
+
+
+/* ELEVE */
+
+.container1
+{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.emploi-du-temps
+{
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  row-gap: 0.75rem;
+}
+
+.heure
+{
+  font-weight : bold;
+}
+
+.cours-maths
+{
+  background-color: #e0f7fa;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.cours-histoire
+{
+  background-color: #fce4ec;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.cours-eps
+{
+  background-color: #e8f5e9;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.cours-anglais
+{
+  background-color: #fff3e0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.cours-physique
+{
+  background-color: #ede7f6;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.notes
+{
+  width: 100%;
+  text-align: right;
+}
+
+.tableau-notes
+{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableau-titre
+{
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.note-maths
+{
+  background-color: #e0f7fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px; 
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.note-francais
+{
+  background-color: #e8f5e9;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px; 
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.note-physique
+{
+  background-color: #fff3e0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px; 
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.devoirs-maths
+{
+  background-color: #f9f9f9;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border-left: 5px solid #42a5f5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.devoirs-anglais
+{
+  background-color: #fefefe;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border-left: 5px solid #42a5f5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.devoirs-histoire
+{
+  background-color: #f9f9f9;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border-left: 5px solid #ffa726;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+
+
+
+/* PROFESSEUR */
+
+.pas-cours
+{
+  background-color: lightgrey;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.container2
+{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.container3
+{
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.devoirs1
+{
+  background-color: #f9f9f9;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+.devoirs2
+{
+  background-color: #f0f8ff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+.devoirs-info
+{
+  margin-top:12px;
+  font-size:0.8rem;
+}
+
+.agenda
+{
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.agenda-info
+{
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.carre-date
+{
+  background-color: #d0f0c0;
+  padding: 0.5rem;
+  border-radius: 6px;
+  min-width: 60px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
