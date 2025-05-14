@@ -80,9 +80,9 @@ function Accueil() {
                     </td>
                   </tr>
                   <tr>
-                    <td style={{ padding: '0.5rem 0.75rem' }}>Français</td>
+                    <td style={{ padding: '0.5rem 0.75rem' }}>Anglais</td>
                     <td style={{ textAlign: 'center' }}>
-                      <span className="note-francais">{etudiant.Français}/20</span>
+                      <span className="note-francais">{etudiant.Anglais}/20</span>
                     </td>
                   </tr>
                   <tr>
