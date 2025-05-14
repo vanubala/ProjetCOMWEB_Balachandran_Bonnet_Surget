@@ -59,7 +59,7 @@ function Note() {
           <ul className="note-list">
             {notes.map((eleve) => (
               <li key={eleve.id}>
-                {eleve.NOM_Prénom} - {personne.Matière} : {eleve[personne.Matière]} - Date de naissance : {eleve.Date_Naissance}
+                {eleve.NOM_Prénom} {eleve[personne.Matière]}
               </li>
             ))}
           </ul>
