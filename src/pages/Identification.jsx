@@ -52,6 +52,7 @@ function Identifiant() {
         .then((data) => {
           if (data.success) {
             localStorage.setItem("prof", JSON.stringify(data.prof));
+            localStorage.setItem("notes", JSON.stringify(data.notes));
             navigate("/Accueil"); // Redirection vers la page d'accueil
           } else {
             setErreur(data.message || "Échec de la connexion.");

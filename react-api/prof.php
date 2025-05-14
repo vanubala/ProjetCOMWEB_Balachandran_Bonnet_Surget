@@ -17,6 +17,15 @@ if (!empty($identifiant) && !empty($motDePasse)) {
     $stmt->execute();
     $result = $stmt->get_result();
 
+    //Préparer deuxième requête pour accéder aux notes des élèves
+    $etudiants = [];
+    $reqEtudiants = $conn->query("SELECT * FROM etudiant");
+    if ($reqEtudiants) {
+        while ($e = $reqEtudiants->fetch_assoc()) {
+            $etudiants[] += $e;
+        }
+    }
+
     // Vérifier si l'utilisateur existe
     if ($row = $result->fetch_assoc()) {
         $date = $row['Date_Naissance']; 
@@ -27,6 +36,7 @@ if (!empty($identifiant) && !empty($motDePasse)) {
         if ($motDePasse === $dateFormatee) {
             echo json_encode([
                 "prof" => $row, // Contient toutes les infos du prof
+                "notes" => $etudiants, //Contient toutes les notes 
                 "success" => true,
             ]);
         } else {
