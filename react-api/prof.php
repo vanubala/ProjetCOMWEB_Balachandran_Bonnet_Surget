@@ -25,6 +25,7 @@ if (!empty($identifiant) && !empty($motDePasse)) {
 
         // Vérification du mot de passe
         if ($motDePasse === $dateFormatee) {
+
             echo json_encode([
                 "prof" => $row, // Contient toutes les infos du prof
                 "success" => true,
