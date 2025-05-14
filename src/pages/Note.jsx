@@ -33,14 +33,14 @@ function Note() {
     const profStocke = localStorage.getItem("prof");
     if (profStocke) {
       try {
-        setPersonne(JSON.parse(profStocke));
+        setPersonne(JSON.parse(profStocke))
       } catch (e) {
         console.error("Erreur de parsing JSON :", e);
       }
     }
   }, [role]);
 
-  setPersonne(personne.Matière)
+
   return (
     <>
       <Navbar/>
@@ -55,11 +55,11 @@ function Note() {
           </ul>
         )}
 
-        {role === "professeur" && notes && (
+        {role === "professeur" && personne && notes && (
           <ul className="note-list">
             {notes.map((eleve) => (
               <li key={eleve.id}>
-                {eleve.NOM_Prénom} - Français : {eleve.personne} - Date de naissance : {eleve.Date_Naissance}
+                {eleve.NOM_Prénom} - {personne.Matière} : {eleve[personne.Matière]} - Date de naissance : {eleve.Date_Naissance}
               </li>
             ))}
           </ul>

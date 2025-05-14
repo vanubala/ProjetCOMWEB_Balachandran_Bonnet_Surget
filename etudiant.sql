@@ -32,7 +32,7 @@ CREATE TABLE `etudiant` (
   `NOM_Prénom` text NOT NULL,
   `Identifiant` text NOT NULL,
   `Date_Naissance` DATE NOT NULL, -- Format : YYYY-MM-DD
-  `Français` float NOT NULL,
+  `Anglais` float NOT NULL,
   `Mathématiques` float NOT NULL,
   `Physique` float NOT NULL,
   `Biologie` float NOT NULL,
