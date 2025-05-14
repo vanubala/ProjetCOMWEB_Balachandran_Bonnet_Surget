@@ -5,17 +5,16 @@ function Note() {
   const role = localStorage.getItem("role");
 
 
-  const [notes, setNotes] = useState(null);
+  const [notes, setNotes] = useState([]);
+
   useEffect(() => {
-      const notesStocke = localStorage.getItem("notes");
-      if (notesStocke) {
-        try {
-          setNotes(JSON.parse(notesStocke));
-        } catch (e) {
-          console.error("Erreur de parsing JSON :", e);
-        }
-      }
-    }, [role]);
+    fetch("http://localhost/react-api/get_notes.php")
+      .then((res) => res.json())
+      .then((data) => {
+        setNotes(data);
+      })
+      .catch((err) => console.error("Erreur:", err));
+  }, [role]);
 
   const [etudiant, setEtudiant] = useState(null);
   useEffect(() => {
@@ -45,9 +44,9 @@ function Note() {
 
         {role === "professeur" && notes && (
           <ul className="note-list">
-            {notes.map((etudiant) => (
-              <li key={etudiant.id}>
-                {etudiant.NOM_Prénom} - Français : {etudiant.Français} - Date de naissance : {etudiant.Date_Naissance}
+            {notes.map((eleve) => (
+              <li key={eleve.id}>
+                {eleve.NOM_Prénom} - Français : {eleve.Français} - Date de naissance : {eleve.Date_Naissance}
               </li>
             ))}
           </ul>
