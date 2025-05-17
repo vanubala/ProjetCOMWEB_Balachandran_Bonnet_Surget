@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 function Accueil() {
   const role = localStorage.getItem("role");
   const [etudiant, setEtudiant] = useState(null);
+  const [dateDuJour, setDateDuJour] = useState("");
 
   useEffect(() => {
     if (role === "élève") {
@@ -22,6 +23,19 @@ function Accueil() {
       }
     }
   }, [role]);
+  
+
+  useEffect(() => {
+    const jours = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+    const moisNom = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+
+    const today = new Date();
+    const jour = jours[today.getDay()];
+    const date = today.getDate();
+    const mois = moisNom[today.getMonth()];
+
+    setDateDuJour(`${jour} ${date} ${mois}`);
+  }, []);
 
   return (
     <>
@@ -37,7 +51,7 @@ function Accueil() {
             
             {/* EMPLOI DU TEMPS */}
             <Bloc style={{height:'400px'}}>
-              <h2 style={{ marginBottom: '2rem' }}>ᐊ Lundi 5 mai ᐅ</h2>
+              <h2 style={{ marginBottom: '2rem' }}>ᐊ {dateDuJour} ᐅ</h2>
               <div className="emploi-du-temps">
                 <div className="heure">08:00</div>
                 <div className="cours-maths">Maths — Salle 101</div>
@@ -136,7 +150,7 @@ function Accueil() {
 
         {/*EMPLOI DU TEMPS*/}
         <Bloc width='350px' >
-          <h2 style={{ marginBottom: '2rem' }}>ᐊ Lundi 5 mai ᐅ</h2>
+          <h2 style={{ marginBottom: '2rem' }}>ᐊ {dateDuJour} ᐅ</h2>
               <div className="emploi-du-temps">
                 <div className="heure">08:00</div>
                 <div className="cours-maths">T°1 — Salle 101</div>
