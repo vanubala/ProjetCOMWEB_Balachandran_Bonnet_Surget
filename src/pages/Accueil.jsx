@@ -74,7 +74,7 @@ function Accueil() {
             {/* NOTES */}
             <Bloc style={{height:'400px'}}>
               <div className="notes">
-                <Link to="/note" clasName="icon-info"><FaEye className='icon'/></Link>
+                <Link to="/note" className="icon-info"><FaEye className='icon'/></Link>
               </div>
 
               <h2 style={{ marginTop: '1', marginBottom: '2rem' }}> Dernières notes</h2>
