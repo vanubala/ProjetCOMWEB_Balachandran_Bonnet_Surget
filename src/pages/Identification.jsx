@@ -1,6 +1,5 @@
-import {React, useState, useEffect } from 'react'
+import {React, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import UserType from './UserType';
 import './Login.css'
 
 function Identifiant() {
