@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 import Navbar from './NavBar'
 import './Note.css'
 function Note() {
+  // ----------Récupération du rôle pour distinguer un élève d'un professeur----------
   const role = localStorage.getItem("role");
 
-
+  // ----------Récupération des notes de tout les élèves----------
   const [notes, setNotes] = useState([]);
-
   useEffect(() => {
     fetch("http://localhost/react-api/get_notes.php")
       .then((res) => res.json())
@@ -16,6 +16,7 @@ function Note() {
       .catch((err) => console.error("Erreur:", err));
   }, [role]);
 
+  // ----------Récupération des notes de l'élève connecté----------
   const [etudiant, setEtudiant] = useState(null);
   useEffect(() => {
     const etudiantStocke = localStorage.getItem("etudiant");
@@ -28,6 +29,7 @@ function Note() {
     }
   }, [role]);
 
+  // ----------Récupération des données du professeur (Pour filtrer les notes en fonction de la matière du professeur)----------
   const [professeur, setProfesseur] = useState(null);
   useEffect(() => {
     const profStocke = localStorage.getItem("prof");
@@ -45,6 +47,8 @@ function Note() {
     <>
       <Navbar/>
       <div>
+
+        {/*----------Affichage des notes de l'élève----------*/}
         {role === "élève" && etudiant && (
           <ul className="note-list">
             <li><span className="note-label">Anglais</span><span className="note-value">{etudiant.Anglais}</span></li>
@@ -55,6 +59,7 @@ function Note() {
           </ul>
         )}
 
+        {/*----------Affichage des notes des élèves dans la matière du professeur----------*/}
         {role === "professeur" && professeur && notes && (
           <ul className="note-list">
             {notes.map((etudiant) => (

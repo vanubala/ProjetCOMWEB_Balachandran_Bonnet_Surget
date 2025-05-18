@@ -7,10 +7,11 @@ import Bloc from './Bloc';
 import { Link } from 'react-router-dom';
 
 function Accueil() {
+  // ----------Récupération du rôle pour distinguer un élève d'un professeur----------
   const role = localStorage.getItem("role");
-  const [etudiant, setEtudiant] = useState(null);
-  const [dateDuJour, setDateDuJour] = useState("");
 
+  // ----------Récupération des données de l'élève connecté----------
+  const [etudiant, setEtudiant] = useState(null);
   useEffect(() => {
     if (role === "élève") {
       const etudiantStocke = localStorage.getItem("etudiant");
@@ -23,8 +24,10 @@ function Accueil() {
       }
     }
   }, [role]);
-  
 
+
+  // ----------Récupération de la date du jours----------
+  const [dateDuJour, setDateDuJour] = useState("");
   useEffect(() => {
     const jours = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
     const moisNom = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
@@ -37,11 +40,13 @@ function Accueil() {
     setDateDuJour(`${jour} ${date} ${mois}`);
   }, []);
 
+
+
   return (
     <>
       <Navbar/>
 
-      {/* ACCUEIL ELEVE */}
+      {/* ----------ACCUEIL ELEVE---------- */}
 
       {role === "élève" && etudiant && (
         <div style={{ padding: '2rem' }}>
@@ -49,7 +54,7 @@ function Accueil() {
 
           <div className="container1">
             
-            {/* EMPLOI DU TEMPS */}
+            {/* ----------EMPLOI DU TEMPS---------- */}
             <Bloc style={{height:'400px'}}>
               <h2 style={{ marginBottom: '2rem' }}>ᐊ {dateDuJour} ᐅ</h2>
               <div className="emploi-du-temps">
@@ -71,7 +76,7 @@ function Accueil() {
             </Bloc>
 
 
-            {/* NOTES */}
+            {/* ----------NOTES---------- */}
             <Bloc style={{height:'400px'}}>
               <div className="notes">
                 <Link to="/note" clasName="icon-info"><FaEye className='icon'/></Link>
@@ -109,7 +114,7 @@ function Accueil() {
               </table>
             </Bloc>
 
-            {/* DEVOIRS */}
+            {/* ----------DEVOIRS---------- */}
             <Bloc width='400px' style={{height:'400px'}} >
               <h2 style={{ marginBottom: '1rem' }}> Devoirs à faire</h2>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -137,18 +142,15 @@ function Accueil() {
 
 
 
-      
 
-
-
-      {/* ACCUEIL PROF */}
+      {/* ----------ACCUEIL PROF---------- */}
       {role === "professeur" && (
         <div style={{ padding: '2rem' }}>
           <h1 style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>Espace professeur</h1>
 
         <div className="container1">
 
-        {/*EMPLOI DU TEMPS*/}
+        {/* ----------EMPLOI DU TEMPS---------- */}
         <Bloc width='350px' >
           <h2 style={{ marginBottom: '2rem' }}>ᐊ {dateDuJour} ᐅ</h2>
               <div className="emploi-du-temps">
@@ -171,19 +173,19 @@ function Accueil() {
 
         <div className="container2">
 
-          {/*PENSE BETE*/}
+          {/* ----------PENSE BETE---------- */}
           <Bloc width='350px' style={{height:'200px'}}>
             <h2 style={{ marginTop: '0', fontSize: '1rem', marginBottom: '0.5rem' }}> 
               <span style={{ backgroundColor: 'yellow' }}>Pense-Bête</span></h2>
               <div style={{fontSize:'0.8rem'}}>Ne pas oublier de distribuer les copies corrigées des T°1</div>
           </Bloc>
 
-        {/*CAHIER DE TEXTE*/}
+        {/* ----------CAHIER DE TEXTE---------- */}
           <Bloc width='350px'>
             <h2 style={{ marginTop: '0', fontSize: '1rem', marginBottom: '0.5rem' }}>Cahier de texte</h2>
                 <div className="container3">
                   
-                  {/* Entrée 1 */}
+                  {/* ----------Entrée 1---------- */}
                   <div className="devoirs1">
                     <div style={{display:'flex', justifyContent: 'space-between' }}>
                       <span><strong>Lundi 12 mai</strong></span>
@@ -192,7 +194,7 @@ function Accueil() {
                     <div className="devoirs-info">→ Gén. et évolution : Exercices 3 à 7 p. 102</div>
                   </div>
 
-                  {/* Entrée 2 */}
+                  {/* ----------Entrée 2---------- */}
                   <div className="devoirs2">
                     <div style={{display:'flex', justifyContent: 'space-between' }}>
                       <span><strong>Mardi 13 mai</strong></span>
@@ -204,12 +206,12 @@ function Accueil() {
           </Bloc>
         </div>
 
-        {/*AGENDA*/}
+        {/* ----------AGENDA---------- */}
           <Bloc width='350px'>
             <h2 style={{ marginTop: '0', fontSize: '1rem', marginBottom: '0.5rem' }}>Agenda</h2>
             <div className="agenda">
               
-              {/* Entrée 1 */}
+              {/* ----------Entrée 1---------- */}
               <div className="agenda-info">
                 <div className="carre-date">12 mai</div>
                 <div>
@@ -218,7 +220,7 @@ function Accueil() {
                 </div>
               </div>
 
-              {/* Entrée 2 */}
+              {/* ----------Entrée 2---------- */}
               <div className="agenda-info">
                 <div className="carre-date">15 mai</div>
                 <div>
@@ -227,7 +229,7 @@ function Accueil() {
                 </div>
               </div>
 
-              {/* Entrée 3 */}
+              {/* ----------Entrée 3---------- */}
               <div className="agenda-info">
                 <div className="carre-date">16 mai</div>
                 <div>
@@ -236,7 +238,7 @@ function Accueil() {
                 </div>
               </div>
 
-              {/* Entrée 4 */}
+              {/* ----------Entrée 4---------- */}
               <div className="agenda-info">
                 <div className="carre-date">12 juin</div>
                 <div>

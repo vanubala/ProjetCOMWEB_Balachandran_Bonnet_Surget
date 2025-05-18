@@ -3,13 +3,17 @@ import { useNavigate, Link } from 'react-router-dom'
 import './Login.css'
 
 function Identifiant() {
+  // ----------Initialisation des variables pour la connexion----------
   const [identifiant, setIdentifiant] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
   const [erreur, setErreur] = useState("");
   const [indice, setIndice] = useState(false);
   const navigate = useNavigate();
 
+  // ----------Récupération du rôle pour distinguer un élève d'un professeur----------
   const role = localStorage.getItem("role");
+
+  // ----------Importation des images----------
   const roleImages = {
     professeur: "./logo-prof.png",
     parent: "./logo-parents.png",
@@ -24,15 +28,17 @@ function Identifiant() {
     formData.append("identifiant", identifiant);
     formData.append("motDePasse", motDePasse);
 
+
+    // ----------Gestion de la connexion en fonction de la personne connectée----------
     if (role=="élève"){
-      fetch("http://localhost/react-api/login.php", {
+      fetch("http://localhost/react-api/etudiant.php", {
         method: "POST",
         body: formData,
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
-            localStorage.setItem("etudiant", JSON.stringify(data.etudiant));
+            localStorage.setItem("etudiant", JSON.stringify(data.etudiant)); // Stockage de la requête de etudiant.php
             navigate("/Accueil"); // Redirection vers la page d'accueil
           } else {
             setErreur(data.message || "Échec de la connexion.");
@@ -50,7 +56,7 @@ function Identifiant() {
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
-            localStorage.setItem("prof", JSON.stringify(data.prof));
+            localStorage.setItem("prof", JSON.stringify(data.prof)); // Stockage de la requête de prof.php
             navigate("/Accueil"); // Redirection vers la page d'accueil
           } else {
             setErreur(data.message || "Échec de la connexion.");
