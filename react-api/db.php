@@ -1,5 +1,5 @@
 <?php
-// ----------Cnnitialisation des variables utilisateur----------
+// ----------Innitialisation des variables utilisateur----------
 $host = "localhost";
 $user = "root";
 $password = "";
