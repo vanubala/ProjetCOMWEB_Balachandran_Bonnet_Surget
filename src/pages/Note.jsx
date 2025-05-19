@@ -8,7 +8,7 @@ function Note() {
   // ----------Récupération des notes de tout les élèves----------
   const [notes, setNotes] = useState([]);
   useEffect(() => {
-    fetch("http://localhost/react-api/get_notes.php")
+    fetch("https://vbalachandr.zzz.bordeaux-inp.fr/react-api/get_notes.php")
       .then((res) => res.json())
       .then((data) => {
         setNotes(data);
