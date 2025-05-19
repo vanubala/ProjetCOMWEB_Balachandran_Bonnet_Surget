@@ -55,8 +55,6 @@ function Navbar() {
 
       <div className="navbar-logout">
         <i className="fi fi-br-exit logout-icon" onClick={() => setShowPopup(!showPopup)}></i>
-        <span onClick={() => setShowPopup(!showPopup)}>Déconnexion</span> {/* !!!!!!! L'icone ne fonctionne plus !!!!!!!! */}
-
 
         {/*----------Affichage d'une pop up de déconnexion----------*/}
         {showPopup && (
