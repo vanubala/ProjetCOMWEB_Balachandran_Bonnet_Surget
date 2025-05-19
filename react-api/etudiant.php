@@ -3,27 +3,27 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Content-Type: application/json");
 
-// Connexion à la BDD
+// ----------Connexion à la base de donnée----------
 include "db.php";
 
-// Récupération des données envoyées par le front
+// ----------Récupération des données envoyées par le front----------
 $identifiant = $_POST['identifiant'] ?? '';
 $motDePasse = $_POST['motDePasse'] ?? '';
 
 if (!empty($identifiant) && !empty($motDePasse)) {
-    // Préparer la requête
+    // ----------Préparation de la requête----------
     $stmt = $conn->prepare("SELECT * FROM etudiant WHERE Identifiant = ?");
     $stmt->bind_param("s", $identifiant);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Vérifier si l'utilisateur existe
+    // ----------Vérification de l'existence de l'utilisateur----------
     if ($row = $result->fetch_assoc()) {
         $date = $row['Date_Naissance']; // Ex: 2007-05-03
         $dateSplit = explode('-', $date);
         $dateFormatee = $dateSplit[2] . $dateSplit[1] . $dateSplit[0]; // 03052007
 
-        // Vérification du mot de passe
+        // ----------Vérification du mot de passe----------
         if ($motDePasse === $dateFormatee) {
             echo json_encode([
                 "etudiant" => $row, // Contient toutes les infos de l'étudiant

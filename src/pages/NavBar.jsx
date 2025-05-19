@@ -3,96 +3,65 @@ import { Link, useNavigate } from 'react-router-dom';
 import "./NavBar.css";
 
 function Navbar() {
+  // ----------Récupération du rôle pour distinguer un élève d'un professeur----------
   const role = localStorage.getItem("role");
+
+  // ----------Récupération des données de la personne connectée----------
+  const [personne, setPersonne] = useState(null);
+  useEffect(() => {
+    const data =
+      role === "élève" ? localStorage.getItem("etudiant") : localStorage.getItem("prof");
+    if (data) {
+      try {
+        setPersonne(JSON.parse(data));
+      } catch (e) {
+        console.error("Erreur de parsing JSON :", e);
+      }
+    }
+  }, [role]);
+
+  // ----------Initialisation de variables et fonction pour gérer la déconnexion de la personne connectée----------
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
-  const [personne, setPersonne] = useState(null);
-  if (role == "élève")
-  {
-    useEffect(() => {
-      const etudiantStocke = localStorage.getItem("etudiant");
-      if (etudiantStocke) {
-        try {
-          setPersonne(JSON.parse(etudiantStocke));
-        } catch (e) {
-          console.error("Erreur de parsing JSON :", e);
-        }
-      }
-    }, []);
-  }
-  else
-  {
-    useEffect(() => {
-      const profStocke = localStorage.getItem("prof");
-      if (profStocke) {
-        try {
-          setPersonne(JSON.parse(profStocke));
-        } catch (e) {
-          console.error("Erreur de parsing JSON :", e);
-        }
-      }
-    }, []);
-  }  
   const handleLogout = () => {
     setShowPopup(false);
-    navigate('/'); // Redirige vers la page de UserType
+    navigate('/'); // Redirige vers la page UserType
     localStorage.setItem("etudiant", null);
     localStorage.setItem("prof", null);
     localStorage.setItem("notes", null);
   };
 
+
+
   return (
-    <nav style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1rem 2rem',
-        backgroundColor: 'black',
-        position: 'relative', // Pour positionner le popup par rapport à la navbar
-      }}>
-      <div style={{ display: 'flex', gap: '2rem' }}>
-        <Link to='/Accueil' style={{ color: 'white' }}>Accueil</Link>
-        <Link to='/Note' style={{ color: 'white' }}>Note</Link>
+    <nav className="navbar">
+      <div className="navbar-links">
+        <Link to='/Accueil'>Accueil</Link>
+        <Link to='/Note'>Note</Link>
+      </div>
+
+      {/*----------Affichage du nom de la personne connectée----------*/}
+      <div className="navbar-user">
+        {personne ? (
+          <p>{personne.NOM_Prénom}</p>
+        ) : (
+          <p>Chargement...</p>
+        )}
       </div>
 
 
-      <div style={{ color: 'white', fontWeight: 'bold', position: 'relative' }}>
-      
-          {personne ? (
-            <p>{personne.NOM_Prénom}</p>
-          ) : (
-            <p>Chargement...</p>
-          )}
-      </div>
 
-      <div style={{ color: 'white', fontWeight: 'bold', position: 'relative' }}>
-        <i className="fi fi-br-exit" style={{ cursor: 'pointer' }} onClick={() => setShowPopup(!showPopup)}></i>
 
+      <div className="navbar-logout">
+        <i className="fi fi-br-exit logout-icon" onClick={() => setShowPopup(!showPopup)}></i>
+        <span onClick={() => setShowPopup(!showPopup)}>Déconnexion</span> {/* !!!!!!! L'icone ne fonctionne plus !!!!!!!! */}
+
+
+        {/*----------Affichage d'une pop up de déconnexion----------*/}
         {showPopup && (
-          <div style={{
-            position: 'absolute',
-            top: '2.5rem',
-            right: 0,
-            backgroundColor: 'white',
-            border: '1px solid #ccc',
-            padding: '1rem',
-            borderRadius: '8px',
-            zIndex: 1000,
-            boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
-          }}>
-            
-            <button
-              onClick={handleLogout}
-              style={{
-                backgroundColor: 'red',
-                color: 'white',
-                border: 'none',
-                padding: '0.5rem 1rem',
-                borderRadius: '4px',
-                cursor: 'pointer',
-              }}
-            >
+          <div className="popup">
+            <button onClick={handleLogout} className="logout-button">
               Déconnexion
             </button>
           </div>
