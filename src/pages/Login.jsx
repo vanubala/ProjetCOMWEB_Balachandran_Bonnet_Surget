@@ -1,8 +1,8 @@
 import {React, useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './Login.css'
 
-function Identifiant() {
+function Login() {
   // ----------Initialisation des variables pour la connexion----------
   const [identifiant, setIdentifiant] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
@@ -108,5 +108,5 @@ function Identifiant() {
   );
 }
 
-export default Identifiant;
+export default Login;
 

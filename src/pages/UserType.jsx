@@ -22,7 +22,7 @@ function UserType() {
 
       <main className="usertype-main">
         <div className="roles-container">
-        <Link to="/Identification" onClick={() => handleRoleSelection("élève")}>
+        <Link to="/Login" onClick={() => handleRoleSelection("élève")}>
             <div className="role-card">
               <img src="./eleve.png" alt="Élèves" />
               <span>Élèves</span>
@@ -32,7 +32,7 @@ function UserType() {
               <img src="./parents.png" alt="Parents" />
               <span>Parents</span>
             </div>
-          <Link to="/Identification" onClick={() => handleRoleSelection("professeur")}>
+          <Link to="/Login" onClick={() => handleRoleSelection("professeur")}>
             <div className="role-card">
               <img src="./prof.png" alt="Professeurs" />
               <span>Professeurs</span>
