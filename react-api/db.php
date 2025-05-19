@@ -1,9 +1,9 @@
 <?php
 // ----------Innitialisation des variables utilisateur----------
 $host = "localhost";
-$user = "root";
-$password = "";
-$db = "etablissement";
+$user = "vbalachandr";
+$password = "BlaBlaBla25";
+$db = "vbalachandr";
 
 // ----------Connexion à la base de donnée----------
 $conn = new mysqli($host, $user, $password, $db);

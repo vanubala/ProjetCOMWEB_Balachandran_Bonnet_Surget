@@ -31,7 +31,7 @@ function Identifiant() {
 
     // ----------Gestion de la connexion en fonction de la personne connectée----------
     if (role=="élève"){
-      fetch("http://localhost/react-api/etudiant.php", {
+      fetch("https://vbalachandr.zzz.bordeaux-inp.fr/react-api/etudiant.php", {
         method: "POST",
         body: formData,
       })
@@ -49,7 +49,7 @@ function Identifiant() {
         });
     }
     else if (role=="professeur"){
-      fetch("http://localhost/react-api/prof.php", {
+      fetch("https://vbalachandr.zzz.bordeaux-inp.fr/react-api/prof.php", {
         method: "POST",
         body: formData,
       })
